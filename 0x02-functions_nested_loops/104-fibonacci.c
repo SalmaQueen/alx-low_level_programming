@@ -2,7 +2,8 @@
 
 int main() {
     int n = 98;
-    int a = 1, b = 2, i, c;
+    int i;
+    unsigned int  a = 1, b = 2, c;
 
     printf("%d, %d, ", a, b);
 
