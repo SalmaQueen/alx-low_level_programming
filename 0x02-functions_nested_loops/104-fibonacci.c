@@ -2,11 +2,11 @@
 
 int main() {
     int n = 98;
-    int a = 1, b = 2, c;
+    int a = 1, b = 2, i, c;
 
     printf("%d, %d, ", a, b);
 
-    for (int i = 3; i <= n; i++) {
+    for ( i = 3; i <= n; i++) {
         c = a + b;
         printf("%d", c);
         if (i < n) {
