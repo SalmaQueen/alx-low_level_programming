@@ -1,14 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int a = 1, b = 2, c, i;
+    int n = 98;
+    int a = 1, b = 2, c;
+
     printf("%d, %d, ", a, b);
-    for (i = 2; i < 98; i++) {
+
+    for (int i = 3; i <= n; i++) {
         c = a + b;
-        printf("%d, ", c);
+        printf("%d", c);
+        if (i < n) {
+            printf(", ");
+        }
         a = b;
         b = c;
     }
+
     printf("\n");
     return 0;
 }
+
