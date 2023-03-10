@@ -1,5 +1,4 @@
 # 0x08. C - Recursion
-This project started on 09-15-2021.
 
 ![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/219/a88.jpg)
 
