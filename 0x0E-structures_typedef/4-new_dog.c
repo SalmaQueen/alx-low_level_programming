@@ -1,59 +1,66 @@
 #include <stdlib.h>
 #include "dog.h"
-/**
- * new_dog - new element of type struct dog
- *
- * @name: name of new dog
- * @age: age of new dog
- * @owner: owner of new dog
- * Return: new struct dog
- */
-dog_t *new_dog(char *name, float age, char *owner)
-{
-	dog_t *new_dog;
-	char *dog_name, *dog_owner;
 
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
-		return (new_dog);
-	dog_name = malloc(sizeof(name));
-		if (dog_name == NULL)
-		{
-			free(new_dog);
-			return (NULL);
-		}
-	dog_owner = malloc(sizeof(owner));
-	if (dog_owner == NULL)
-	{
-		free(dog_name);
-		free(new_dog);
+/**
+* _strdup - return pointer to new allocate space in memory
+* that contains a copy pf the string given as parameter
+* @str: value to check
+*
+* Return: char
+*/
+
+char *_strdup(char *str)
+{
+	char *dupl;
+	unsigned int i = 0;
+	unsigned int j = 0;
+
+	if (str == NULL)
 		return (NULL);
+	while (str[i] != '\0')
+		i += 1;
+	i += 1;
+	dupl = malloc(i * sizeof(*dupl));
+	if (dupl == NULL)
+		return (NULL);
+	while (j < i)
+	{
+		dupl[j] = str[j];
+		j += 1;
 	}
-	_strcpy(dog_name, name);
-	_strcpy(dog_owner, owner);
-	new_dog->name = dog_name;
-	new_dog->owner = dog_owner;
-	new_dog->age = age;
-	return (new_dog);
+	return (dupl);
 }
 
 /**
- * *_strcpy - copies string to given memory location
- * @dest: where the string needs to be copied
- * @src: where the string is
- *
- * Return: char
- */
-char *_strcpy(char *dest, char *src)
+* new_dog - create new dog
+* @name: dog name
+* @age: dog age
+* @owner: dog owner
+*
+* Return: new struct dog
+*/
+
+
+dog_t *new_dog(char *name, float age, char *owner)
 {
-	int len = 0;
+	struct dog *new_dog;
 
-	while (*(src + len) != '\0')
+	new_dog = malloc(sizeof(struct dog));
+	if (new_dog == NULL)
+		return (NULL);
+	new_dog->name = _strdup(name);
+	if (new_dog->name == NULL)
 	{
-		*(dest + len) = *(src + len);
-		len++;
+		free(new_dog);
+		return (NULL);
 	}
-	*(dest + len) = *(src + len);
-
-	return (dest);
+	new_dog->age = age;
+	new_dog->owner = _strdup(owner);
+	if (new_dog->owner == NULL)
+	{
+		free(new_dog);
+		free(new_dog->name);
+		return (NULL);
+	}
+	return (new_dog);
 }
