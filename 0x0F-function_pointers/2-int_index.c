@@ -1,20 +1,26 @@
 #include "function_pointers.h"
 
 /**
- * int_index - searches for an integer
- *
- * @array: pointer to array
- * @size: size of array
- * @cmp: function to compare and return match if it exists
- * Return: index of first match or -1 if not match or fail
- */
+* int_index - search for an integer
+* @array: vlaue to check integer array
+* @size: size of the array
+* @cmp: pointer function
+*
+* Return: index of first element for which the cmp funtion does not return 0
+* If no element matches, returns -1, else -1 if size <= 0
+*/
+
 int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i;
 
-	if (array && cmp && size > 0)
+	if (array && cmp)
+	{
+		if (size <= 0)
+			return (-1);
 		for (i = 0; i < size; i++)
 			if (cmp(array[i]))
 				return (i);
+	}
 	return (-1);
 }
