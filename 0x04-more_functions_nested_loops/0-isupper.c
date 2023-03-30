@@ -2,7 +2,7 @@
 
 /**
 * _isupper - checks for upper case characters
-* @c: inout value to check for.
+* @c: input value to check for.
 * Return: int 1 for C or 0 otherwise.
 */
 
