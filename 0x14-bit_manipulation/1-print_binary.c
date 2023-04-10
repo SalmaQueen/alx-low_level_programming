@@ -1,30 +1,27 @@
 #include "main.h"
 
 /**
- * print_binary - Function that prints the binary rep of a number
- * @n: Number of print in a binary
+ * print_binary - prints binary
+ * @n: number
+ *
+ * Return: binary
  */
-
 void print_binary(unsigned long int n)
 {
-	unsigned long int mask = 1UL << ((sizeof(unsigned long int) * 8) - 1);
-	int flag = 0;
+	int len;
+	unsigned long int buff, mask = 1;
 
-	while (mask)
+	for (len = 0, buff = n; buff > 0; len++)
+		buff >>= 1;
+
+	if (--len > 0)
+		mask <<= len;
+
+	for (; mask > 0; mask >>= 1)
 	{
 		if (n & mask)
-		{
-			flag = 1;
-			printf("1");
-		}
-		else if (flag)
-		{
-			printf("0");
-		}
-		mask = mask >> 1;
-	}
-	if (!flag)
-	{
-		printf("0");
+			_putchar('1');
+		else
+			_putchar('0');
 	}
 }
