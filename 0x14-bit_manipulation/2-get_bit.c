@@ -1,26 +1,16 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * get_bit - Function that gets a bit
- * @n: Number/binary to be got the bit from
- *@index: The index that the mask will target
+ * get_bit - returns the value of a bit at a given index
+ * @n: number whose bit value to retrieve
+ * @index: index of the but to retrieve
+ *
+ * Return: Value of the bit at the given index, or -1 if an error occurs
  */
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int mask = 1UL << index;
-
 	if (index >= sizeof(unsigned long int) * 8)
-	{
 		return (-1);
-	}
-	if (n & mask)
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	return ((n >> index) & 1);
 }
