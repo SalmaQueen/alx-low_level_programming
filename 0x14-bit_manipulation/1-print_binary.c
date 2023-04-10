@@ -3,7 +3,7 @@
 
 
 /**
- * print_binary - Function that prints the binary rep of a number
+ * print_binary - Function that converts into binary
  * @n: Number of print in a binary
  */
 
