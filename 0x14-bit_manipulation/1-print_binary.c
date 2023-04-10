@@ -1,9 +1,7 @@
-#include <stdio.h>
 #include "main.h"
 
-
 /**
- * print_binary - Function that converts into binary
+ * print_binary - Function that prints the binary rep of a number
  * @n: Number of print in a binary
  */
 
