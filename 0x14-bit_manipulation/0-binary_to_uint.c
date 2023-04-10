@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  *binary_to_uint - Entry point convert binary number to
@@ -7,23 +8,24 @@
  *
  *Return: 0
  */
+
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int output = 0;
-	int i = 0;
+	unsigned int result = 0;
 
-	if (!b)
+	if (b == NULL)
 	{
 		return (0);
 	}
-	while (b[i])
+	while (*b != '\0')
 	{
-		if (b[i] != '0' && (b[i] != '1'))
+		if (*b != '0' && *b != '1')
 		{
-		return (0);
+			return (0);
 		}
-	output = (output << 1) + (b[i] - '0');
-	i++;
+		result = (result << 1) + (*b - '0');
+		b++;
 	}
-	return (output);
+	return (result);
 }
+
