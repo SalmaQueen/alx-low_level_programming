@@ -1,5 +1,5 @@
-#ifndef _ELF_A_H
-#define _ELF_A_H
+#ifndef _ELFA_H
+#define _ELFA_H
 
 #include "main.h"
 

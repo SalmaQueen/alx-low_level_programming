@@ -29,12 +29,32 @@ int main(int argc, char *argv[])
 }
 
 /**
- * coin_count - counts the min coins needed for change
+ * coin_count - counts the min coins needed for change,
+ * unlimited number of coins of values 25, 10, 5, 2, and 1 cent
  *
  * @count: int to count coins
  * @num: argv[1] changed to int
  * Return: int
  */
+
+//simiar to the below
+// unsigned int make_change(int n)
+// {
+// 	int dp[n + 1];
+// 	int i, j , coins[5] = { 1, 2, 5, 10, 25 };
+
+// 	dp[0] = 1;
+// 	for (i = 0; i < 5; i++)
+// 	{
+// 		for (j = coins[i]; j <= n; j++)
+// 		{
+// 			dp[j] += dp[j - coins[i]];
+// 		}
+// 	}
+// 	return dp[n];
+// }
+
+
 unsigned int coin_count(unsigned int count, int num)
 {
 	unsigned int sum = 0;
